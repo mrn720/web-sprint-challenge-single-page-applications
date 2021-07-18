@@ -42,7 +42,6 @@ const App = () => {
       .catch(err => {
         console.log(err);
       })
-      setFormValues(initialFormValues)
   };
 
   const inputChange = (name, value) => {
@@ -63,6 +62,7 @@ const App = () => {
       toppings: [ 'pepperoni', 'ham', 'salami', 'chicken', 'extraCheese', 'onions', 'pineapple', 'jalapeno', 'pickles' ].filter(topping => formValues[topping])
     }
     postPizza( pizza )
+    setFormValues(initialFormValues)
   }
   useEffect(() => {
     formSchema.isValid(formValues).then(valid => setDisabled(!valid))

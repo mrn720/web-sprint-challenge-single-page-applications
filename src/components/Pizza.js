@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const Pizza = (props) => {
     const { values, submit, change, errors, disabled} = props
     const onSubmit = evt => {
-        evt.preventDefault()
         submit()
     }
     const onChange = evt => {
@@ -112,8 +111,9 @@ const Pizza = (props) => {
                 <div className = "errors">
                     <p>{errors.name}</p>
                     <p>{errors.size}</p>
+                    <p>{errors.sauce}</p>
                 </div>
-                <button id = "order-button" disabled={disabled}>Order Pizza</button>
+                <button id = "order-button" onSubmit = {onSubmit} disabled={disabled}>Order Pizza</button>
             </form>
         </MainDiv>
     );
