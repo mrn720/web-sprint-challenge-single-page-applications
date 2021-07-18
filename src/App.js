@@ -6,7 +6,6 @@ import Nav from './components/Nav'
 import Pizza from './components/Pizza'
 import Home from './components/Home'
 import formSchema from './components/formSchema'
-import styled from 'styled-components'
 
 const initialFormValues = {
   name: '',
