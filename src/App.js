@@ -34,10 +34,10 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(true);
 
-  const postPizza = orders => {
-    axios.post('https://reqres.in/api/orders', orders)
+  const postPizza = pizza => {
+    axios.post('https://reqres.in/api/orders', pizza)
       .then(res => {
-        console.log(res.data)
+        console.log(res)
       })
       .catch(err => {
         console.log(err);
@@ -59,7 +59,7 @@ const App = () => {
       name: formValues.name.trim(),
       size: formValues.size.trim(),
       sauce: formValues.sauce.trim(),
-      toppings: [ 'pepperoni', 'ham', 'salami', 'chicken', 'extraCheese', 'onions', 'pineapple', 'jalapeno', 'pickles' ].filter(topping => formValues[topping])
+      toppings: [ 'pepperoni', 'ham', 'salami', 'chicken', 'extraCheese', 'onions', 'pineapple', 'jalapeno', 'pickles' ].map(topping => formValues[topping])
     }
     postPizza( pizza )
     setFormValues(initialFormValues)

@@ -1,11 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useState } from 'react';
 
 
 const Pizza = (props) => {
-    const { values, submit, change, errors, disabled} = props
+    const { values, submit, change, errors, disabled } = props
+
     const onSubmit = evt => {
+        evt.preventDefault()
+        evt.target.reset()
         submit()
+        
     }
     const onChange = evt => {
         const { name, value, type, checked} = evt.target
